@@ -2,7 +2,7 @@ import pygame
 import pymunk.pygame_util
 pymunk.pygame_util.positive_y_is_up = False
 
-RES = WIDTH, HEIGHT = 1500, 1000
+RES = WIDTH, HEIGHT = 1300, 800
 FPS = 120
 
 pygame.init()
@@ -22,7 +22,7 @@ def create_ball(space, pos):
     ball_body.position = pos
     # phy
     ball_shape = pymunk.Circle(ball_body, ball_radius)
-    ball_shape.elasticity = 1
+    ball_shape.elasticity = 0.999
     ball_shape.friction = 0.5
     space.add(ball_body, ball_shape)
 
@@ -49,9 +49,9 @@ wall_segments = [
     ((0, 0), (WIDTH, 0)),  # top wall
     ((WIDTH, 0), (WIDTH, HEIGHT)),  # right wall
     ((0, HEIGHT), (WIDTH, HEIGHT)),  # bottom wall
-    ((-20, HEIGHT), (-20, 0)),  # left wall
-    ((0,HEIGHT), (900, 800)), #the incline
-    ((900, 800),(WIDTH, 800)) #the beach
+    ((-30, HEIGHT), (-30, 0)),  # left wall
+    ((0,HEIGHT), (700, 600)), #the incline
+    ((700, 600),(WIDTH, 600)) #the beach
 
 ]
 
